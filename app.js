@@ -19,7 +19,11 @@ app.use('/api/dogs', dogRoutes);
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+if (require.main === module) {
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
+
+module.exports = app;
 // This code sets up an Express.js server for a Dog Adoption API.
 // It connects to a MongoDB database, uses CORS for cross-origin requests, and parses JSON request bodies.
 // The server listens on a specified port and defines routes for user authentication and dog-related operations.
